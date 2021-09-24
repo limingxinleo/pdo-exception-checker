@@ -8,7 +8,7 @@ env:
 
 jobs:
   ci:
-    name: Test PHP ${{ matrix.php-version }} on ${{ matrix.engine }}
+    name: Test for PDOException
     runs-on: "${{ matrix.os }}"
     strategy:
       matrix:

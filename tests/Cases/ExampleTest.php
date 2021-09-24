@@ -17,8 +17,12 @@ namespace HyperfTest\Cases;
  */
 class ExampleTest extends AbstractTestCase
 {
-    public function testExample()
+    public function testIsDuplicateEntryForPrimaryKey()
     {
-        $this->assertTrue(true);
+        try {
+            $this->connection->insert('INSERT INTO `hyperf`.`user_ext`(`id`) VALUES(1);');
+        } catch (\Throwable $exception) {
+            $this->assertTrue($this->parser->isDuplicateEntryForPrimaryKey($exception));
+        }
     }
 }
