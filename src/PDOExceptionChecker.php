@@ -16,6 +16,9 @@ use Throwable;
 
 class PDOExceptionChecker
 {
+    /**
+     * 判断是否主键冲突
+     */
     public function isDuplicateEntryForPrimaryKey(Throwable $throwable): bool
     {
         return $throwable instanceof PDOException
