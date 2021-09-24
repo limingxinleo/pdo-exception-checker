@@ -21,7 +21,7 @@ class PDOExceptionParser
         return $throwable instanceof PDOException
             && $throwable->getCode() == 23000
             && $this->match(
-                "/Duplicate entry \\'\\w+\\' for key \\'\\w+\\'/",
+                "/Duplicate entry \\'\\w+\\' for key \\'[\\w\\.]*PRIMARY\\'/",
                 $throwable->getMessage()
             );
     }
