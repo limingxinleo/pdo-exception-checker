@@ -1,5 +1,5 @@
 {
-    "name": "limingxinleo/pdo-exceptioin-parser",
+    "name": "limingxinleo/pdo-exceptioin-checker",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -9,7 +9,7 @@
     "description": "",
     "autoload": {
         "psr-4": {
-            "Fan\\PDOExceptionParser\\": "src/"
+            "Fan\\": "src/"
         }
     },
     "autoload-dev": {

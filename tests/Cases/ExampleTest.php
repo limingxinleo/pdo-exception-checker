@@ -22,7 +22,7 @@ class ExampleTest extends AbstractTestCase
         try {
             $this->connection->insert('INSERT INTO `hyperf`.`user_ext`(`id`) VALUES(1);');
         } catch (\Throwable $exception) {
-            $this->assertTrue($this->parser->isDuplicateEntryForPrimaryKey($exception));
+            $this->assertTrue($this->checker->isDuplicateEntryForPrimaryKey($exception));
         }
     }
 }

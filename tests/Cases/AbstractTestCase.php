@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace HyperfTest\Cases;
 
-use Fan\PDOExceptionParser\PDOExceptionParser;
+use Fan\PDOExceptionChecker;
 use Hyperf\Database\ConnectionInterface;
 use Hyperf\Database\Connectors\ConnectionFactory;
 use Hyperf\Database\Connectors\MySqlConnector;
@@ -36,9 +36,9 @@ abstract class AbstractTestCase extends TestCase
     protected $connection;
 
     /**
-     * @var PDOExceptionParser
+     * @var PDOExceptionChecker
      */
-    protected $parser;
+    protected $checker;
 
     public function __construct(?string $name = null, array $data = [], $dataName = '')
     {
@@ -56,6 +56,6 @@ abstract class AbstractTestCase extends TestCase
         ]);
         $factory = new ClassInvoker(new ConnectionFactory(\Mockery::mock(ContainerInterface::class)));
         $this->connection = $factory->createConnection('mysql', $this->pdo, 'hyperf', '', $config);
-        $this->parser = new PDOExceptionParser();
+        $this->checker = new PDOExceptionChecker();
     }
 }
